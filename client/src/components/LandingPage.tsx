@@ -61,7 +61,7 @@ export default function LandingPage({ onTravelClick }: LandingPageProps) {
         {/* Movie poster */}
         <div className="w-80 h-96 mx-auto mb-8 rounded-lg shadow-2xl relative overflow-hidden">
           <img 
-            src="https://www.cinemapostergallery.co.uk/wp-content/uploads/2024/08/Back-to-the-Future-1985-Original-US-One-Sheet-Re-Release-Poster-framed.jpg"
+            src="/images/bttf-poster.png"
             alt="Back to the Future Movie Poster"
             className="w-full h-full object-cover rounded-lg"
             onError={(e) => {
