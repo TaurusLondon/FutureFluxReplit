@@ -61,7 +61,7 @@ export default function LandingPage({ onTravelClick }: LandingPageProps) {
         {/* Movie poster */}
         <div className="w-80 h-96 mx-auto mb-8 rounded-lg shadow-2xl relative overflow-hidden">
           <img 
-            src="/images/bttf-poster.png"
+            src="https://i.postimg.cc/qBhBzYJG/DG-BTTF-Final.png"
             alt="Back to the Future Movie Poster"
             className="w-full h-full object-cover rounded-lg"
             onError={(e) => {
@@ -89,12 +89,12 @@ export default function LandingPage({ onTravelClick }: LandingPageProps) {
 
         {/* Title */}
         <h1 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 animate-pulse">
-          Time Travel Team Selector
+          Back to the Future Products - I&P
         </h1>
 
         {/* Subtitle */}
         <p className="text-xl md:text-2xl mb-12 text-gray-300 max-w-2xl mx-auto">
-          Journey through time to select your team and answer questions from the Past, Present, and Future!
+          Journey through time to select projects and ask questions about the Past, Present, and Future!
         </p>
 
         {/* Travel button */}

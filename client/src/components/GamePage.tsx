@@ -17,7 +17,8 @@ export default function GamePage({ onBackToStart }: GamePageProps) {
   const [gameState, setGameState] = useState<GameState>("wheel");
   const [availableTeams, setAvailableTeams] = useState<Team[]>(initialTeams);
   const [selectedTeam, setSelectedTeam] = useState<Team | null>(null);
-  const [selectedTimePeriod, setSelectedTimePeriod] = useState<TimePeriod | null>(null);
+  const [selectedTimePeriod, setSelectedTimePeriod] =
+    useState<TimePeriod | null>(null);
   const [currentQuestion, setCurrentQuestion] = useState<string>("");
   const [availableQuestions, setAvailableQuestions] = useState(questions);
   const { setHitSound, setSuccessSound } = useAudio();
@@ -32,26 +33,26 @@ export default function GamePage({ onBackToStart }: GamePageProps) {
 
   const handleTeamSelected = (team: Team) => {
     setSelectedTeam(team);
-    setAvailableTeams(prev => prev.filter(t => t.id !== team.id));
+    setAvailableTeams((prev) => prev.filter((t) => t.id !== team.id));
     setGameState("boxes");
   };
 
   const handleTimePeriodSelected = (period: TimePeriod) => {
     setSelectedTimePeriod(period);
-    
+
     // Get a random question from the selected time period
     const periodQuestions = availableQuestions[period];
     if (periodQuestions.length > 0) {
       const randomIndex = Math.floor(Math.random() * periodQuestions.length);
       const question = periodQuestions[randomIndex];
       setCurrentQuestion(question);
-      
+
       // Remove the question from available questions
-      setAvailableQuestions(prev => ({
+      setAvailableQuestions((prev) => ({
         ...prev,
-        [period]: prev[period].filter((_, index) => index !== randomIndex)
+        [period]: prev[period].filter((_, index) => index !== randomIndex),
       }));
-      
+
       setGameState("question");
     }
   };
@@ -95,7 +96,7 @@ export default function GamePage({ onBackToStart }: GamePageProps) {
       <div className="relative z-10 p-6">
         <div className="flex justify-between items-center">
           <h1 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
-            Flux Capacitor Team Selector
+            Future Product - I&P
           </h1>
           <button
             onClick={onBackToStart}
@@ -110,7 +111,7 @@ export default function GamePage({ onBackToStart }: GamePageProps) {
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 pb-20">
         {gameState === "wheel" && (
           <div className="text-center">
-            <SpinningWheel 
+            <SpinningWheel
               teams={availableTeams}
               onTeamSelected={handleTeamSelected}
             />
@@ -140,7 +141,9 @@ export default function GamePage({ onBackToStart }: GamePageProps) {
                 Team Selected: {selectedTeam.name}
               </h2>
               <div className="mb-4">
-                <h3 className="text-xl font-semibold mb-2 text-cyan-400">Team Members:</h3>
+                <h3 className="text-xl font-semibold mb-2 text-cyan-400">
+                  Team Members:
+                </h3>
                 <div className="flex flex-wrap justify-center gap-2">
                   {selectedTeam.members.map((member, index) => (
                     <span
