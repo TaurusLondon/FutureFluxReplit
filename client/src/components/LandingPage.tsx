@@ -58,18 +58,33 @@ export default function LandingPage({ onTravelClick }: LandingPageProps) {
 
       {/* Main content */}
       <div className="z-10 text-center max-w-4xl px-4">
-        {/* Movie poster placeholder - using a styled div since we can't generate actual images */}
-        <div className="bg-gradient-to-b from-orange-400 to-red-600 w-80 h-96 mx-auto mb-8 rounded-lg shadow-2xl flex flex-col items-center justify-center text-black font-bold relative overflow-hidden">
-          <div className="absolute inset-0 bg-black opacity-20"></div>
-          <div className="z-10 text-center p-4">
-            <h1 className="text-4xl mb-4 text-white drop-shadow-lg">BACK TO THE</h1>
-            <h1 className="text-6xl mb-6 text-yellow-300 drop-shadow-lg">FUTURE</h1>
-            <div className="text-white text-lg">
-              <p>A Team Selection</p>
-              <p>Adventure Game</p>
+        {/* Movie poster */}
+        <div className="w-80 h-96 mx-auto mb-8 rounded-lg shadow-2xl relative overflow-hidden">
+          <img 
+            src="https://www.cinemapostergallery.co.uk/wp-content/uploads/2024/08/Back-to-the-Future-1985-Original-US-One-Sheet-Re-Release-Poster-framed.jpg"
+            alt="Back to the Future Movie Poster"
+            className="w-full h-full object-cover rounded-lg"
+            onError={(e) => {
+              // Fallback to styled div if image fails to load
+              const target = e.target as HTMLImageElement;
+              target.style.display = 'none';
+              const fallback = target.nextElementSibling as HTMLElement;
+              if (fallback) fallback.style.display = 'flex';
+            }}
+          />
+          {/* Fallback styled div (hidden by default) */}
+          <div className="absolute inset-0 bg-gradient-to-b from-orange-400 to-red-600 flex flex-col items-center justify-center text-black font-bold rounded-lg" style={{ display: 'none' }}>
+            <div className="absolute inset-0 bg-black opacity-20"></div>
+            <div className="z-10 text-center p-4">
+              <h1 className="text-4xl mb-4 text-white drop-shadow-lg">BACK TO THE</h1>
+              <h1 className="text-6xl mb-6 text-yellow-300 drop-shadow-lg">FUTURE</h1>
+              <div className="text-white text-lg">
+                <p>A Team Selection</p>
+                <p>Adventure Game</p>
+              </div>
             </div>
+            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black to-transparent"></div>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black to-transparent"></div>
         </div>
 
         {/* Title */}
