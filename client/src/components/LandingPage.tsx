@@ -89,12 +89,12 @@ export default function LandingPage({ onTravelClick }: LandingPageProps) {
 
         {/* Title */}
         <h1 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 animate-pulse">
-          Back to the Future Products - I&P
+          Back to the Future (Products)
         </h1>
 
         {/* Subtitle */}
         <p className="text-xl md:text-2xl mb-12 text-gray-300 max-w-2xl mx-auto">
-          Journey through time to select projects and ask questions about the Past, Present, and Future!
+          Journey through time to select projects and answer questions about the Past, Present, and Future!
         </p>
 
         {/* Travel button */}
@@ -110,8 +110,8 @@ export default function LandingPage({ onTravelClick }: LandingPageProps) {
         </button>
 
         {/* Footer text */}
-        <p className="mt-8 text-sm text-gray-400">
-          "Roads? Where we're going, we don't need roads!" - Doc Brown
+        <p className="mt-8 text-2xl text-gray-400">
+          "Roadmaps? Where we're going, we don't need roadmaps!" - Chris McAllister
         </p>
       </div>
     </div>

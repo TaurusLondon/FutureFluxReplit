@@ -96,7 +96,7 @@ export default function GamePage({ onBackToStart }: GamePageProps) {
       <div className="relative z-10 p-6">
         <div className="flex justify-between items-center">
           <h1 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
-            Future Products - I&P
+            Future Products
           </h1>
           <button
             onClick={onBackToStart}

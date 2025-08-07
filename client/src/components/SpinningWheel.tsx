@@ -134,7 +134,7 @@ export default function SpinningWheel({
           Click the center of the Flux Capacitor to select a project
         </h2>
         <p className="text-gray-300 mb-6">&#128142;</p>
-        <div className="text-sm text-gray-400">
+        <div className="text-2xl text-gray-400">
           Projects remaining: {teams.length}
         </div>
       </div>

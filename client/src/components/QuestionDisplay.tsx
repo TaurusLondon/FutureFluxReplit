@@ -114,7 +114,7 @@ export default function QuestionDisplay({
       </div>
 
       {/* Decorative elements */}
-      <div className="mt-8 text-gray-400 text-sm italic">
+      <div className="mt-8 text-gray-400 text-3xl italic">
         "Great Scott! That's a challenging question!" - Doc Brown
       </div>
     </div>

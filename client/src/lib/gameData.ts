@@ -38,8 +38,8 @@ export const teams: Team[] = [
   },
   {
     id: 6,
-    name: "Agentic AI Auth",
-    members: ["Alan", "Stefani", "Trien"],
+    name: "423",
+    members: ["Chris", "Stefani", "Trien"],
     description: "Agentic AI Auth",
   },
 ];

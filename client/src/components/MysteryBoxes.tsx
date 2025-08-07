@@ -45,7 +45,7 @@ export default function MysteryBoxes({ onTimePeriodSelected }: MysteryBoxesProps
       <h2 className="text-3xl font-bold mb-8 text-cyan-400">
         Choose Your Time Period! 🕰️
       </h2>
-      <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+      <p className="text-gray-300 text-2xl mb-8 max-w-2xl mx-auto">
         Three mysterious boxes appear before you. Each contains questions from a different era. 
         Choose wisely, time travelers!
       </p>
@@ -74,7 +74,7 @@ export default function MysteryBoxes({ onTimePeriodSelected }: MysteryBoxesProps
                     <div className="text-center">
                       <div className="text-6xl mb-2">📦</div>
                       <div className="text-yellow-400 font-bold text-sm">MYSTERY</div>
-                      <div className="text-gray-300 text-xs">Box {boxIndex + 1}</div>
+                      <div className="text-gray-300 text-3xl">Box {boxIndex + 1}</div>
                     </div>
                     {/* Sparkle effects */}
                     <div className="absolute inset-0 overflow-hidden rounded-lg">
@@ -116,7 +116,7 @@ export default function MysteryBoxes({ onTimePeriodSelected }: MysteryBoxesProps
       </div>
 
       {!revealedBox && (
-        <div className="mt-8 text-gray-400 text-sm">
+        <div className="mt-8 text-gray-400 text-2xl">
           Click on any box to reveal its time period and get your question!
         </div>
       )}
