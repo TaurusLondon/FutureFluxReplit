@@ -118,16 +118,16 @@ export default function GamePage({ onBackToStart }: GamePageProps) {
             {availableTeams.length === 0 && (
               <div className="mt-8 p-6 bg-gray-800 rounded-lg">
                 <h2 className="text-2xl font-bold mb-4 text-yellow-400">
-                  All Teams Selected! 🎉
+                  All Projects Selected! 🎉
                 </h2>
                 <p className="mb-4 text-gray-300">
-                  You've gone through all the teams. Ready for another round?
+                  You've gone through all the projects. Ready for another round?
                 </p>
                 <button
                   onClick={() => setAvailableTeams(initialTeams)}
                   className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-colors"
                 >
-                  Reset Teams
+                  Reset Projects
                 </button>
               </div>
             )}

@@ -7,7 +7,10 @@ interface SpinningWheelProps {
   onTeamSelected: (team: Team) => void;
 }
 
-export default function SpinningWheel({ teams, onTeamSelected }: SpinningWheelProps) {
+export default function SpinningWheel({
+  teams,
+  onTeamSelected,
+}: SpinningWheelProps) {
   const [isSpinning, setIsSpinning] = useState(false);
   const wheelRef = useRef<HTMLDivElement>(null);
   const { playHit, playSuccess } = useAudio();
@@ -26,7 +29,8 @@ export default function SpinningWheel({ teams, onTeamSelected }: SpinningWheelPr
     // Calculate rotation to land on selected team
     const degreesPerTeam = 360 / teams.length;
     const baseRotation = 360 * 5; // 5 full rotations
-    const targetRotation = baseRotation + (randomTeamIndex * degreesPerTeam) + (degreesPerTeam / 2);
+    const targetRotation =
+      baseRotation + randomTeamIndex * degreesPerTeam + degreesPerTeam / 2;
 
     if (wheelRef.current) {
       wheelRef.current.style.transform = `rotate(${targetRotation}deg)`;
@@ -43,8 +47,10 @@ export default function SpinningWheel({ teams, onTeamSelected }: SpinningWheelPr
   if (teams.length === 0) {
     return (
       <div className="text-center">
-        <div className="text-2xl text-yellow-400 mb-4">No teams available!</div>
-        <p className="text-gray-300">All teams have been selected.</p>
+        <div className="text-2xl text-yellow-400 mb-4">
+          No projects available!
+        </div>
+        <p className="text-gray-300">All projects have been selected.</p>
       </div>
     );
   }
@@ -67,10 +73,11 @@ export default function SpinningWheel({ teams, onTeamSelected }: SpinningWheelPr
             ref={wheelRef}
             className="absolute inset-0 rounded-full border-4 border-yellow-400 shadow-2xl overflow-hidden"
             style={{
-              backgroundImage: "url('https://stickeredup4lemans.com/cdn/shop/files/SillyStuff12_2048x.jpg')",
+              backgroundImage:
+                "url('https://stickeredup4lemans.com/cdn/shop/files/SillyStuff12_2048x.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
-              backgroundRepeat: "no-repeat"
+              backgroundRepeat: "no-repeat",
             }}
           >
             {teams.map((team, index) => {
@@ -81,7 +88,7 @@ export default function SpinningWheel({ teams, onTeamSelected }: SpinningWheelPr
                   className="absolute inset-0 flex items-center justify-center"
                   style={{
                     transform: `rotate(${rotation}deg)`,
-                    transformOrigin: '50% 50%',
+                    transformOrigin: "50% 50%",
                   }}
                 >
                   <div
@@ -103,9 +110,9 @@ export default function SpinningWheel({ teams, onTeamSelected }: SpinningWheelPr
               onClick={handleSpin}
               disabled={isSpinning}
               className={`w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 border-4 border-yellow-300 shadow-lg transform transition-all duration-200 ${
-                isSpinning 
-                  ? 'scale-95 cursor-not-allowed' 
-                  : 'hover:scale-110 cursor-pointer hover:shadow-xl'
+                isSpinning
+                  ? "scale-95 cursor-not-allowed"
+                  : "hover:scale-110 cursor-pointer hover:shadow-xl"
               }`}
             >
               <div className="flex flex-col items-center justify-center h-full text-black font-bold">
@@ -127,11 +134,9 @@ export default function SpinningWheel({ teams, onTeamSelected }: SpinningWheelPr
         <h2 className="text-2xl font-bold mb-4 text-yellow-400">
           Click the center of the Flux Capacitor to select a project
         </h2>
-        <p className="text-gray-300 mb-6">
-          &#128142;
-        </p>
+        <p className="text-gray-300 mb-6">&#128142;</p>
         <div className="text-sm text-gray-400">
-          Teams remaining: {teams.length}
+          Projects remaining: {teams.length}
         </div>
       </div>
     </div>
