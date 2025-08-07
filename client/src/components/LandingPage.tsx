@@ -11,7 +11,7 @@ export default function LandingPage({ onTravelClick }: LandingPageProps) {
 
   useEffect(() => {
     // Load background music
-    const audio = new Audio("/sounds/background.mp3");
+    const audio = new Audio("/sounds/BTTFT_Tune.mp3");
     audio.loop = true;
     audio.volume = 0.3;
     setBackgroundMusic(audio);
