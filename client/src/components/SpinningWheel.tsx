@@ -67,7 +67,10 @@ export default function SpinningWheel({ teams, onTeamSelected }: SpinningWheelPr
             ref={wheelRef}
             className="absolute inset-0 rounded-full border-4 border-yellow-400 shadow-2xl overflow-hidden"
             style={{
-              background: "conic-gradient(from 0deg, #1e3a8a, #3b82f6, #8b5cf6, #a855f7, #ec4899, #1e3a8a)"
+              backgroundImage: "url('https://stickeredup4lemans.com/cdn/shop/files/SillyStuff12_2048x.jpg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat"
             }}
           >
             {teams.map((team, index) => {
