@@ -125,10 +125,10 @@ export default function SpinningWheel({ teams, onTeamSelected }: SpinningWheelPr
       {/* Instructions */}
       <div className="text-center max-w-md">
         <h2 className="text-2xl font-bold mb-4 text-yellow-400">
-          Flux Capacitor Team Selector
+          Click the center of the Flux Capacitor to select a project
         </h2>
         <p className="text-gray-300 mb-6">
-          Click the center button to spin the wheel and select a random team!
+          &#128142;
         </p>
         <div className="text-sm text-gray-400">
           Teams remaining: {teams.length}

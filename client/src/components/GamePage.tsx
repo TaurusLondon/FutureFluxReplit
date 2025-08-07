@@ -96,7 +96,7 @@ export default function GamePage({ onBackToStart }: GamePageProps) {
       <div className="relative z-10 p-6">
         <div className="flex justify-between items-center">
           <h1 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
-            Future Product - I&P
+            Future Products - I&P
           </h1>
           <button
             onClick={onBackToStart}
@@ -138,7 +138,7 @@ export default function GamePage({ onBackToStart }: GamePageProps) {
           <div className="text-center max-w-4xl w-full">
             <div className="mb-8 p-6 bg-gray-800 bg-opacity-80 rounded-lg">
               <h2 className="text-3xl font-bold mb-4 text-yellow-400">
-                Team Selected: {selectedTeam.name}
+                Project Selected: {selectedTeam.name}
               </h2>
               <div className="mb-4">
                 <h3 className="text-xl font-semibold mb-2 text-cyan-400">

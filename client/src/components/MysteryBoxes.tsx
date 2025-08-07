@@ -47,7 +47,7 @@ export default function MysteryBoxes({ onTimePeriodSelected }: MysteryBoxesProps
       </h2>
       <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
         Three mysterious boxes appear before you. Each contains questions from a different era. 
-        Choose wisely, time traveler!
+        Choose wisely, time travelers!
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
