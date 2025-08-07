@@ -109,7 +109,7 @@ export default function SpinningWheel({
             <button
               onClick={handleSpin}
               disabled={isSpinning}
-              className={`w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 border-4 border-yellow-300 shadow-lg transform transition-all duration-200 ${
+              className={`w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 border-4 border-yellow-300 shadow-lg transform transition-all duration-200 ${
                 isSpinning
                   ? "scale-95 cursor-not-allowed"
                   : "hover:scale-110 cursor-pointer hover:shadow-xl"
@@ -117,7 +117,6 @@ export default function SpinningWheel({
             >
               <div className="flex flex-col items-center justify-center h-full text-black font-bold">
                 <div className="text-xl">⚡</div>
-                <div className="text-xs">SPIN</div>
               </div>
             </button>
           </div>
