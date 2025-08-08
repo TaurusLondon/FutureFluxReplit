@@ -29,8 +29,10 @@ export default function SpinningWheel({
     // Calculate rotation to land on selected team
     const degreesPerTeam = 360 / teams.length;
     const baseRotation = 360 * 5; // 5 full rotations
-    const targetRotation =
-      baseRotation + randomTeamIndex * degreesPerTeam + degreesPerTeam / 2;
+    // Pointer is at top (0 degrees), so we need to rotate to bring the selected team to the top
+    // Since teams are positioned starting from 0 degrees and going clockwise, 
+    // we need to rotate counter-clockwise to bring the target to the pointer
+    const targetRotation = baseRotation - (randomTeamIndex * degreesPerTeam);
 
     if (wheelRef.current) {
       wheelRef.current.style.transform = `rotate(${targetRotation}deg)`;
