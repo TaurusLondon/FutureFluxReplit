@@ -22,15 +22,17 @@ export default function GamePage({ onBackToStart }: GamePageProps) {
   const [currentQuestion, setCurrentQuestion] = useState<string>("");
   const [currentWildcardQuestion, setCurrentWildcardQuestion] = useState<WildcardQuestion | null>(null);
   const [availableQuestions, setAvailableQuestions] = useState(questions);
-  const { setHitSound, setSuccessSound } = useAudio();
+  const { setHitSound, setSuccessSound, setWheelSpinSound } = useAudio();
 
   useEffect(() => {
     // Load sound effects
     const hitAudio = new Audio("/sounds/hit.mp3");
     const successAudio = new Audio("/sounds/success.mp3");
+    const wheelSpinAudio = new Audio("/sounds/WheelSpinSound.mp3");
     setHitSound(hitAudio);
     setSuccessSound(successAudio);
-  }, [setHitSound, setSuccessSound]);
+    setWheelSpinSound(wheelSpinAudio);
+  }, [setHitSound, setSuccessSound, setWheelSpinSound]);
 
   const handleTeamSelected = (team: Team) => {
     setSelectedTeam(team);

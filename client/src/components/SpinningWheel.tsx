@@ -13,13 +13,14 @@ export default function SpinningWheel({
 }: SpinningWheelProps) {
   const [isSpinning, setIsSpinning] = useState(false);
   const wheelRef = useRef<HTMLDivElement>(null);
-  const { playHit, playSuccess } = useAudio();
+  const { playHit, playSuccess, playWheelSpin, stopWheelSpin } = useAudio();
 
   const handleSpin = () => {
     if (isSpinning || teams.length === 0) return;
 
     setIsSpinning(true);
     playHit();
+    playWheelSpin(); // Start playing the spinning sound
 
     // Random spin duration between 3-5 seconds
     const spinDuration = 3000 + Math.random() * 2000;
@@ -41,6 +42,7 @@ export default function SpinningWheel({
 
     setTimeout(() => {
       setIsSpinning(false);
+      stopWheelSpin(); // Stop the spinning sound
       playSuccess();
       onTeamSelected(selectedTeam);
     }, spinDuration);
