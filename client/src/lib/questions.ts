@@ -4,6 +4,14 @@ export interface QuestionBank {
   future: string[];
 }
 
+export interface WildcardQuestion {
+  theme: string;
+  title: string;
+  scenario: string;
+  question: string;
+  image: string;
+}
+
 export type QuestionType = keyof QuestionBank;
 
 export const questions: QuestionBank = {
@@ -44,4 +52,35 @@ export const getRandomQuestion = (period: QuestionType, usedQuestions: string[] 
 // Function to check if there are questions remaining for a time period
 export const hasQuestionsRemaining = (period: QuestionType, usedQuestions: string[] = []): boolean => {
   return questions[period].some(q => !usedQuestions.includes(q));
+};
+
+// Wildcard questions for special challenges
+export const wildcardQuestions: WildcardQuestion[] = [
+  {
+    theme: "It's a franchise mash-up!!!",
+    title: "Uh-oh, the T100 has arrived to destroy you. (aka a challenge or blocker or particularly ahem awkward stakeholder)",
+    scenario: "You need a protector (T–800) aka Dougie.",
+    question: "What do they need to do to help/protect you?",
+    image: "Franchise.png"
+  },
+  {
+    theme: "It's a franchise mash-up!!!",
+    title: "FreakyFriday",
+    scenario: "Swap places with the LT",
+    question: "If this project becomes legendary, what will people say about it in hindsight?",
+    image: "Freakyfriday.png"
+  },
+  {
+    theme: "It's a franchise mash-up!!!",
+    title: "Sliding Doors",
+    scenario: "Swap places with the LT",
+    question: "One small difference can change the whole course of history... If you could go back in time and change one thing about this project, what would it be?",
+    image: "Slidingdoors.png"
+  }
+];
+
+// Function to get a random wildcard question
+export const getRandomWildcardQuestion = (): WildcardQuestion => {
+  const randomIndex = Math.floor(Math.random() * wildcardQuestions.length);
+  return wildcardQuestions[randomIndex];
 };

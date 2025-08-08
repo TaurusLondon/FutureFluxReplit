@@ -2,24 +2,25 @@ import { useState, useEffect } from "react";
 import SpinningWheel from "./SpinningWheel";
 import MysteryBoxes from "./MysteryBoxes";
 import QuestionDisplay from "./QuestionDisplay";
+import WildcardDisplay from "./WildcardDisplay";
 import { Team, teams as initialTeams } from "../lib/gameData";
-import { questions, QuestionType } from "../lib/questions";
+import { questions, QuestionType, WildcardQuestion, getRandomWildcardQuestion } from "../lib/questions";
 import { useAudio } from "../lib/stores/useAudio";
 
 interface GamePageProps {
   onBackToStart: () => void;
 }
 
-type GameState = "wheel" | "boxes" | "question";
+type GameState = "wheel" | "boxes" | "question" | "wildcard";
 type TimePeriod = "past" | "present" | "future";
 
 export default function GamePage({ onBackToStart }: GamePageProps) {
   const [gameState, setGameState] = useState<GameState>("wheel");
   const [availableTeams, setAvailableTeams] = useState<Team[]>(initialTeams);
   const [selectedTeam, setSelectedTeam] = useState<Team | null>(null);
-  const [selectedTimePeriod, setSelectedTimePeriod] =
-    useState<TimePeriod | null>(null);
+  const [selectedTimePeriod, setSelectedTimePeriod] = useState<TimePeriod | null>(null);
   const [currentQuestion, setCurrentQuestion] = useState<string>("");
+  const [currentWildcardQuestion, setCurrentWildcardQuestion] = useState<WildcardQuestion | null>(null);
   const [availableQuestions, setAvailableQuestions] = useState(questions);
   const { setHitSound, setSuccessSound } = useAudio();
 
@@ -66,10 +67,26 @@ export default function GamePage({ onBackToStart }: GamePageProps) {
     setGameState("wheel");
   };
 
+  const handleWildcardSelected = () => {
+    const wildcardQuestion = getRandomWildcardQuestion();
+    setCurrentWildcardQuestion(wildcardQuestion);
+    setGameState("wildcard");
+  };
+
   const handleNextQuestion = () => {
     setGameState("boxes");
     setSelectedTimePeriod(null);
     setCurrentQuestion("");
+    setCurrentWildcardQuestion(null);
+  };
+
+  const handleNewSpinFromWildcard = () => {
+    setAvailableQuestions(questions);
+    setSelectedTeam(null);
+    setSelectedTimePeriod(null);
+    setCurrentQuestion("");
+    setCurrentWildcardQuestion(null);
+    setGameState("wheel");
   };
 
   return (
@@ -156,7 +173,10 @@ export default function GamePage({ onBackToStart }: GamePageProps) {
                 </div>
               </div>
             </div>
-            <MysteryBoxes onTimePeriodSelected={handleTimePeriodSelected} />
+            <MysteryBoxes 
+              onTimePeriodSelected={handleTimePeriodSelected}
+              onWildcardSelected={handleWildcardSelected}
+            />
           </div>
         )}
 
@@ -167,6 +187,15 @@ export default function GamePage({ onBackToStart }: GamePageProps) {
             question={currentQuestion}
             onNextQuestion={handleNextQuestion}
             onNewSpin={handleNewSpin}
+          />
+        )}
+
+        {gameState === "wildcard" && selectedTeam && currentWildcardQuestion && (
+          <WildcardDisplay
+            team={selectedTeam}
+            wildcardQuestion={currentWildcardQuestion}
+            onNextQuestion={handleNextQuestion}
+            onNewSpin={handleNewSpinFromWildcard}
           />
         )}
       </div>

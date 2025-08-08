@@ -3,11 +3,12 @@ import { useAudio } from "../lib/stores/useAudio";
 
 interface MysteryBoxesProps {
   onTimePeriodSelected: (period: "past" | "present" | "future") => void;
+  onWildcardSelected: () => void;
 }
 
 type TimePeriod = "past" | "present" | "future";
 
-export default function MysteryBoxes({ onTimePeriodSelected }: MysteryBoxesProps) {
+export default function MysteryBoxes({ onTimePeriodSelected, onWildcardSelected }: MysteryBoxesProps) {
   const [revealedBox, setRevealedBox] = useState<TimePeriod | null>(null);
   const { playHit } = useAudio();
 
@@ -27,6 +28,13 @@ export default function MysteryBoxes({ onTimePeriodSelected }: MysteryBoxesProps
     setTimeout(() => {
       onTimePeriodSelected(selectedPeriod);
     }, 1500);
+  };
+
+  const handleWildcardClick = () => {
+    if (revealedBox) return;
+    
+    playHit();
+    onWildcardSelected();
   };
 
   const getBoxContent = (period: TimePeriod) => {
@@ -116,8 +124,42 @@ export default function MysteryBoxes({ onTimePeriodSelected }: MysteryBoxesProps
       </div>
 
       {!revealedBox && (
-        <div className="mt-8 text-gray-400 text-2xl">
+        <div className="mt-8 text-gray-400 text-sm">
           Click on any box to reveal its time period and get your question!
+        </div>
+      )}
+
+      {/* Wildcard Button */}
+      {!revealedBox && (
+        <div className="mt-12 flex justify-center">
+          <button
+            onClick={handleWildcardClick}
+            className="group relative px-16 py-6 bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 text-white font-bold text-xl rounded-full shadow-2xl hover:from-purple-700 hover:via-pink-700 hover:to-red-700 transform hover:scale-105 transition-all duration-300 overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+            <div className="relative z-10 flex items-center gap-4">
+              <span className="text-3xl">🎭</span>
+              <span>WILDCARD</span>
+              <span className="text-3xl">🎭</span>
+            </div>
+            {/* Sparkle effects */}
+            <div className="absolute inset-0 overflow-hidden rounded-full">
+              {[...Array(12)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute bg-white rounded-full opacity-60 animate-ping"
+                  style={{
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
+                    width: `${Math.random() * 3 + 1}px`,
+                    height: `${Math.random() * 3 + 1}px`,
+                    animationDelay: `${Math.random() * 3}s`,
+                    animationDuration: `${Math.random() * 2 + 1}s`,
+                  }}
+                />
+              ))}
+            </div>
+          </button>
         </div>
       )}
     </div>
