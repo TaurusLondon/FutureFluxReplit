@@ -66,8 +66,8 @@ export default function SpinningWheel({
           <div className="w-0 h-0 border-l-4 border-r-4 border-b-8 border-transparent border-b-yellow-400"></div>
         </div>
 
-        {/* Wheel container */}
-        <div className="relative w-80 h-80 md:w-96 md:h-96">
+        {/* Wheel container - 1.3x bigger */}
+        <div className="relative w-[416px] h-[416px] md:w-[500px] md:h-[500px]">
           {/* Wheel segments */}
           <div
             ref={wheelRef}
