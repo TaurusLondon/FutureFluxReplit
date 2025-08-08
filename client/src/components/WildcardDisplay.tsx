@@ -113,7 +113,7 @@ export default function WildcardDisplay({
       </div>
 
       {/* Decorative elements */}
-      <div className="mt-6 text-gray-400 text-sm italic">
+      <div className="mt-6 text-gray-400 text-2xl italic">
         "This is heavy, Doc!" - Marty McFly encounters a franchise mash-up
       </div>
     </div>
