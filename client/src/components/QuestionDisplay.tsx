@@ -34,7 +34,7 @@ export default function QuestionDisplay({
         return { 
           emoji: "⏪", 
           title: "THE PAST", 
-          subtitle: "1885 - Wild West Era",
+          subtitle: "We time-travelled back to ancient Rome. Caesar said, 'Et tu, UX?",
           bgColor: "from-amber-600 to-orange-700",
           textColor: "text-orange-200"
         };
@@ -42,7 +42,7 @@ export default function QuestionDisplay({
         return { 
           emoji: "⏸️", 
           title: "THE PRESENT", 
-          subtitle: "1985 - Hill Valley",
+          subtitle: "We’re not just thinking outside the box—we’re thinking outside the timeline.",
           bgColor: "from-green-600 to-emerald-700",
           textColor: "text-green-200"
         };
@@ -50,7 +50,7 @@ export default function QuestionDisplay({
         return { 
           emoji: "⏩", 
           title: "THE FUTURE", 
-          subtitle: "2015 - Age of Flying Cars",
+          subtitle: "Where we’re going, we don’t need roadmaps",
           bgColor: "from-purple-600 to-indigo-700",
           textColor: "text-purple-200"
         };
