@@ -66,10 +66,10 @@ export const hasQuestionsRemaining = (
 export const wildcardQuestions: WildcardQuestion[] = [
   {
     theme: "It's a franchise mash-up!!!",
-    title:
-      "Uh-oh, the T1000 has arrived to destroy you. (aka a challenge or blocker or particularly ahem awkward stakeholder)",
+    title: "Terminator",
     scenario: "You need a protector (T–800) aka Dougie.",
-    question: "What do they need to do to help/protect you?",
+    question:
+      "Uh-oh, the T1000 has arrived to destroy you (aka a challenge or blocker or particularly ahem awkward stakeholder). What do they need to do to help/protect you?",
     image: "Franchise.png",
   },
   {
