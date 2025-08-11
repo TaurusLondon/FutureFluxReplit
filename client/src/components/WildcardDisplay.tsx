@@ -63,13 +63,13 @@ export default function WildcardDisplay({
             {/* <span className="inline-block px-3 py-1 bg-yellow-500 text-black font-bold rounded-full text-xs">
             QUESTION
           </span> */}
-            <h3 className="text-lg font-bold text-yellow-300 mb-3 leading-tight">
+            <h3 className="text-xl font-bold text-yellow-300 mb-3 leading-tight">
               {wildcardQuestion.title}
             </h3>
-            <p className="text-base text-pink-200 leading-relaxed">
+            <p className="text-lg text-base text-pink-200 leading-relaxed">
               {wildcardQuestion.scenario}
             </p>
-            <h4 className="text-base font-bold text-white leading-relaxed">
+            <h4 className="text-base text-xl font-bold text-white leading-relaxed">
               {wildcardQuestion.question}
             </h4>
           </div>

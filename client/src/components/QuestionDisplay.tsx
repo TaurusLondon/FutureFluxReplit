@@ -9,12 +9,12 @@ interface QuestionDisplayProps {
   onNewSpin: () => void;
 }
 
-export default function QuestionDisplay({ 
-  team, 
-  timePeriod, 
-  question, 
-  onNextQuestion, 
-  onNewSpin 
+export default function QuestionDisplay({
+  team,
+  timePeriod,
+  question,
+  onNextQuestion,
+  onNewSpin,
 }: QuestionDisplayProps) {
   const { playSuccess } = useAudio();
 
@@ -31,28 +31,30 @@ export default function QuestionDisplay({
   const getTimePeriodInfo = () => {
     switch (timePeriod) {
       case "past":
-        return { 
-          emoji: "⏪", 
-          title: "THE PAST", 
-          subtitle: "We time-travelled back to ancient Rome. Caesar said, 'Et tu, UX?",
+        return {
+          emoji: "⏪",
+          title: "THE PAST",
+          subtitle:
+            "We time-travelled back to ancient Rome. Caesar said, 'Et tu, UX?",
           bgColor: "from-amber-600 to-orange-700",
-          textColor: "text-orange-200"
+          textColor: "text-orange-200",
         };
       case "present":
-        return { 
-          emoji: "⏸️", 
-          title: "THE PRESENT", 
-          subtitle: "We’re not just thinking outside the box—we’re thinking outside the timeline.",
+        return {
+          emoji: "⏸️",
+          title: "THE PRESENT",
+          subtitle:
+            "We’re not just thinking outside the box—we’re thinking outside the timeline.",
           bgColor: "from-green-600 to-emerald-700",
-          textColor: "text-green-200"
+          textColor: "text-green-200",
         };
       case "future":
-        return { 
-          emoji: "⏩", 
-          title: "THE FUTURE", 
+        return {
+          emoji: "⏩",
+          title: "THE FUTURE",
           subtitle: "Where we’re going, we don’t need roadmaps",
           bgColor: "from-purple-600 to-indigo-700",
-          textColor: "text-purple-200"
+          textColor: "text-purple-200",
         };
     }
   };
@@ -62,9 +64,13 @@ export default function QuestionDisplay({
   return (
     <div className="max-w-4xl mx-auto text-center">
       {/* Time Period Header */}
-      <div className={`mb-8 p-6 rounded-lg bg-gradient-to-r ${periodInfo.bgColor} shadow-2xl`}>
+      <div
+        className={`mb-8 p-6 rounded-lg bg-gradient-to-r ${periodInfo.bgColor} shadow-2xl`}
+      >
         <div className="text-6xl mb-4">{periodInfo.emoji}</div>
-        <h2 className="text-4xl font-bold mb-2 text-white">{periodInfo.title}</h2>
+        <h2 className="text-4xl font-bold mb-2 text-white">
+          {periodInfo.title}
+        </h2>
         <p className="text-lg ${periodInfo.textColor}">{periodInfo.subtitle}</p>
       </div>
 
@@ -92,9 +98,15 @@ export default function QuestionDisplay({
             QUESTION
           </span>
         </div>
-        <h3 className="text-2xl md:text-3xl font-bold text-white leading-relaxed">
-          {question}
+        {/* Theme */}
+        <h3 className="text-xl md:text-2xl font-semibold text-yellow-300 mb-2">
+          {question.split(" - ")[0]}
         </h3>
+
+        {/* Actual Question */}
+        <p className="text-2xl md:text-3xl font-bold text-white leading-relaxed">
+          {question.split(" - ")[1]}
+        </p>
       </div>
 
       {/* Action Buttons */}
